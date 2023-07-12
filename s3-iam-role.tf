@@ -1,5 +1,5 @@
-resource "aws_iam_role" "IAM-Jenkins-S3-Access" {
-  name = "IAM-Jenkins-S3-Access"
+resource "aws_iam_role" "s3-jenkins-role" {
+  name = "s3-jenkins_role"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -15,7 +15,7 @@ resource "aws_iam_role" "IAM-Jenkins-S3-Access" {
 }
 
 resource "aws_iam_policy" "s3-jenkins-rw-policy" {
-  name   = "IAM-Jenkins-S3-Access"
+  name   = "s3-jenkins-rw-policy"
   policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -39,11 +39,11 @@ EOF
 }
 
 resource "aws_iam_role_policy_attachment" "s3-jenkins-s3-access" {
-  policy_arn = aws_iam_policy.IAM-Jenkins-S3-Access.arn
-  role       = IAM-Jenkins-S3-Access.name
+  policy_arn = aws_iam_policy.s3-jenkins-rw-policy.arn
+  role       = aws_iam_role.s3-jenkins-role.name
 }
 
-resource "aws_iam_instance_profile" "IAM-Jenkins-S3-Access-profile" {
-  name = "IAM-Jenkins-S3-Access-profile"
-  role = IAM-Jenkins-S3-Access.name
+resource "aws_iam_instance_profile" "s3-jenkins-profile" {
+  name = "s3-jenkins-profile"
+  role = aws_iam_role.s3-jenkins-role.name
 }
