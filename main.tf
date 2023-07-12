@@ -12,7 +12,7 @@ resource "aws_instance" "jenkins" {
   instance_type               = var.instance_type
   key_name                    = var.key_name
   associate_public_ip_address = var.associate_public_ip_address
-  vpc_security_group_ids      = [aws_security_group.jenkins-sg.id]
+  vpc_security_group_ids      = [aws_security_group.jenkins-security-group.id]
   user_data                   = file("install_jenkins.sh")
   iam_instance_profile        = aws_iam_instance_profile.s3-jenkins-profile.name
 
