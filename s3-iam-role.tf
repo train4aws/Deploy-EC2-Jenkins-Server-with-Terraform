@@ -40,10 +40,10 @@ EOF
 
 resource "aws_iam_role_policy_attachment" "s3-jenkins-s3-access" {
   policy_arn = aws_iam_policy.s3-jenkins-rw-policy.arn
-  role       = IAM-Jenkins-S3-Access
+  role       = IAM-Jenkins-S3-Access.name
 }
 
 resource "aws_iam_instance_profile" "s3-jenkins-profile" {
   name = "s3-jenkins-profile"
-  role = IAM-Jenkins-S3-Access
+  role = IAM-Jenkins-S3-Access.name
 }
