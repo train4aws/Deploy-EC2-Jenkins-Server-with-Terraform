@@ -4,7 +4,7 @@ variable "aws_region" {
 }
 
 variable "ami" {
-  default = "ami-04581fbf744a7d11f"
+  default = "ami-069d73f3235b535bd"
   type    = string
 }
 
@@ -29,7 +29,7 @@ variable "jenkins-tag-name" {
 }
 
 variable "bucket" {
-  default = "jenkins-s3-bucket-ae-2023"
+  default = "application-readwright-s3bucket"
   type    = string
 }
 
