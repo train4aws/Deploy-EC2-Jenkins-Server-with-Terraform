@@ -21,7 +21,7 @@ resource "aws_instance" "jenkins" {
   }
 }
 
-resource "aws_s3_bucket" "jenkinstf-s3-bucket" {
+resource "aws_s3_bucket" "jenkins-s3-bucket202" {
   bucket = var.bucket
 
   tags = {
@@ -29,7 +29,7 @@ resource "aws_s3_bucket" "jenkinstf-s3-bucket" {
   }
 }
 
-resource "aws_s3_bucket_acl" "jenkinstf-s3-acl" {
-  bucket = aws_s3_bucket.jenkinstf-s3-bucket.id
+resource "aws_s3_bucket_acl" "jenkins-s3-bucket202-acl" {
+  bucket = aws_s3_bucket.jenkins-s3-bucket202.id
   acl    = var.acl
 }
