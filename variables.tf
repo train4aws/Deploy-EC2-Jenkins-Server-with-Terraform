@@ -1,5 +1,5 @@
 variable "aws_region" {
-  default = "us-east-1"
+  default = "us-east-2"
   type    = string
 }
 
@@ -14,7 +14,7 @@ variable "instance_type" {
 }
 
 variable "key_name" {
-  default = "levelupkeypair"
+  default = "tf-jenkins-aws-service"
   type    = string
 }
 
@@ -29,7 +29,7 @@ variable "jenkins-tag-name" {
 }
 
 variable "bucket" {
-  default = "jenkins-s3-bucket-ifeanyi-luit20"
+  default = "jenkins-s3-bucket-ae-2023"
   type    = string
 }
 
